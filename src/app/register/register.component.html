@@ -1,0 +1,160 @@
+<!-- image degign -->
+
+<div class="container-fluid">
+    <div class="row">
+      <!-- image -->
+        <img src="https://tse4.mm.bing.net/th?id=OIP.ArZQcqZ-BrENV_MxCaPdMQHaEK&pid=Api&P=0" alt="student reg">
+    </div>
+    </div>
+
+    <!-- register success msg -->
+
+<div *ngIf="registerSuccessMsg" style="width:100%; height:100vh;" class="container d-flex justify-content-center align-item-center text-center">
+<h3 class="text-primary">
+    <img style="width:50px; height:50px;" src="https://www.professionals.co.nz/hubfs/2020%20images/Property%20feature%20images/loading-gif.gif" alt="spinner">
+    Your data's are getting registered...please wait...
+</h3>
+</div>
+    
+   <!-- register design -->
+<div *ngIf="!registerSuccessMsg">
+  <div class="container"> 
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" method="post">
+    
+      <div>  
+      <h3 class="mb-3 text-center mt-3">Student Register Form</h3>
+     </div>
+  
+
+    <!-- 1st row -->
+    <div class="row">
+      <!-- first name -->
+    <div class="col-md-4 mb-1" style="margin-left: 7%;">
+      <div class="form-floating mb-3">
+        <input name="firstname" formControlName="firstname" type="text" id="form3Example1m" class="form-control form-control-lg" id="floatingInputname" placeholder="first name" required>
+        <label class="form-label" for="floatingInput">First Name:</label>
+      </div>
+      <!-- firstname error msg -->
+    <div *ngIf="this.registerForm.get('firstname')?.errors&&this.registerForm.get('firstname')?.touched"
+    class="text-danger mb-3">Check the Name</div>
+    </div>
+    <!-- last name -->
+    <div class="col-md-4 mb-1" style="margin-left: 10%;">
+      <div class="form-floating mb-3">
+        <input name="lastname" formControlName="lastname" type="text" id="form3Example1m" class="form-control form-control-lg" id="floatingInputname" placeholder="Last name" required>
+        <label class="form-label" for="floatingInput">Last Name:</label>
+      </div>
+      <!-- lastname error msg -->
+    <div *ngIf="this.registerForm.get('lastname')?.errors&&this.registerForm.get('lastname')?.touched"
+    class="text-danger mb-3">check the name </div>
+    </div>
+   
+    </div>
+    
+    
+      <!-- address -->
+      <div class="col-md-4 mb-1" style="margin-left: 7%;">
+        <div class="form-floating mb-3">
+          <input name="address" formControlName="address" type="text" id="form3Example1m" class="form-control form-control-lg" id="floatingInputname" placeholder="Address" required>
+          <label class="form-label" for="floatingInput">Address:</label>
+        </div>
+         <!-- address error msg -->
+    <div *ngIf="this.registerForm.get('address')?.errors&&this.registerForm.get('address')?.touched"
+    class="text-danger mb-3">invalid Address </div>
+      </div>
+    
+    <!-- email -->
+    <div class="col-md-4 mb-1" style="margin-left: 7%;">
+      <div class="form-floating mb-3">
+        <input name="email" formControlName="email" type="email" id="form3Example1m" class="form-control form-control-lg" id="floatingInputname" placeholder="abc@gmail.com" required>
+        <label class="form-label" for="floatingInput">Email:</label>
+      </div>
+       <!-- email error msg -->
+    <div *ngIf="this.registerForm.get('email')?.errors&&this.registerForm.get('email')?.touched"
+    class="text-danger mb-3">check the Email </div>
+    </div>
+  
+  <div class="row">
+    <!-- mobile  -->
+  <div class="col-md-4 mb-1" style="margin-left: 7%;">
+    <div class="form-floating mb-3">
+      <input name="mobile" formControlName="mobile" type="number" id="form3Example1m" class="form-control form-control-lg" id="floatingInputname" placeholder="Mobile number" required>
+      <label class="form-label" for="floatingInput">Mobile:</label>
+    </div>
+     <!-- mobile error msg -->
+     <div *ngIf="this.registerForm.get('mobile')?.errors&&this.registerForm.get('mobile')?.touched"
+     class="text-danger mb-3">Invalid Mobile No</div>
+  </div>
+  <!-- date of birth -->
+  <div class="col-md-4 mb-1" style="margin-left: 10%;">
+    <div class="form-floating mb-3">
+      <input name="dob" formControlName="dob" type="date" class="form-control form-control-lg"id="floatingInputname" placeholder="dd-mm-yyyy" required>
+      <label class="form-label" for="floatingInput">DOB:</label>
+    </div>
+     <!-- dob error msg -->
+     <div *ngIf="this.registerForm.get('dob')?.errors&&this.registerForm.get('dob')?.touched"
+     class="text-danger mb-3">Set the DOB </div>
+  </div>
+  </div>
+  <!-- gender -->
+  
+  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2" style="margin-left: 7%;">
+  
+    <h6 class="mb-0 me-4">Gender: </h6>
+  
+  <!-- female -->
+   <div>
+      <div class="form-check form-check-inline mb-0 me-4">
+        <input name="gender" formControlName="gender"  type="radio" class="form-check-input"
+          value="Female" required>
+        <label class="form-check-label" for="female">Female</label>
+      </div>
+    <!-- male -->
+      <div class="form-check form-check-inline mb-0 me-4">
+        <input name="gender" formControlName="gender"  type="radio"  class="form-check-input"
+          value="Male" required>
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+    <!-- others -->
+      <div class="form-check form-check-inline mb-0">
+        <input name="gender" formControlName="gender"  type="radio"  class="form-check-input"
+          value="Others" required>
+        <label class="form-check-label" for="other">Other</label>
+      </div>
+    
+   </div>
+    <!-- dob error msg -->
+    <div *ngIf="this.registerForm.get('gender')?.errors&&this.registerForm.get('gender')?.touched"
+    class="text-danger mb-3">Gender is Required </div>
+  </div>
+  <!-- course -->
+  
+  <div class="col-md-4 mb-1" style="margin-left: 7%;">
+    <div class="form-floating mb-3">
+      <input name="course" formControlName="course" type="text" id="form3Example1m" id="floatingInputname" class="form-control" placeholder="course name" required>
+      <label class="form-label" for="floatingInput">Course:</label>
+    </div>
+     <!-- course error msg -->
+     <div *ngIf="this.registerForm.get('course')?.errors&&this.registerForm.get('course')?.touched"
+     class="text-danger mb-3">Select a Course </div>
+  </div>
+<!-- registerErrorMsg  -->
+
+  <div class="mt-2 mb-2 text-danger fw-bolder">
+    {{registerErrorMsg}}
+  </div>
+
+  <!-- button -->
+  <div class="d-flex justify-content-center pt-3">
+    <button type="submit" class="btn btn-success btn-lg">Register
+    </button>
+    <button type="button" class="btn btn-warning btn-lg ms-2">Cancel</button>
+  </div>
+
+  </form> 
+
+
+</div>
+  
+</div>
